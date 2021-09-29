@@ -19,9 +19,8 @@ class Main {
 				st = new StringTokenizer(br.readLine());
 
 				input1 = st.nextToken();
-
-				switch(input1) {
-				case "push_front":
+				
+				if(input1.equals("push_front")) {
 					input2 = Integer.parseInt(st.nextToken());
 
 					if(input2 < 1 || input2 > 100000)
@@ -33,9 +32,8 @@ class Main {
 						else
 							array[0] = input2;
 					}
-
-					break;
-				case "push_back":
+				}
+				else if(input1.equals("push_back")) {
 					input2 = Integer.parseInt(st.nextToken());
 
 					if(input2 < 1 || input2 > 100000)
@@ -47,9 +45,8 @@ class Main {
 							break;
 						}
 					}
-
-					break;
-				case "pop_front":
+				}
+				else if(input1.equals("pop_front")) {
 					if(array[0] == 0)
 						System.out.println(-1);
 					else {
@@ -58,9 +55,8 @@ class Main {
 						for(int m = 0; m < N-1; m++)
 							array[m] = array[m+1];
 					}
-
-					break;
-				case "pop_back":
+				}
+				else if(input1.equals("pop_back")) {
 					if(array[0] == 0)
 						System.out.println(-1);
 					else {
@@ -72,28 +68,28 @@ class Main {
 							}
 						}
 					}
-					break;
-				case "size":
+				}
+				else if(input1.equals("size")) {
 					for(int m = 0; m < N; m++) {
 						if(array[m] == 0) {
 							System.out.println(m);
 							break;
 						}
 					}
-					break;
-				case "empty":
+				}
+				else if(input1.equals("empty")) {
 					if(array[0] == 0)
 						System.out.println(1);
 					else
 						System.out.println(0);
-					break;
-				case "front":
+				}
+				else if(input1.equals("front")) {
 					if(array[0] == 0)
 						System.out.println(-1);
 					else
 						System.out.println(array[0]);
-					break;
-				case "back":
+				}
+				else if(input1.equals("back")) {
 					if(array[0] == 0)
 						System.out.println(-1);
 					else {
@@ -104,7 +100,6 @@ class Main {
 							}
 						}
 					}
-					break;
 				}
 			}
 		}
