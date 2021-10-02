@@ -13,13 +13,9 @@ class Main {
 		int M = Integer.parseInt(st.nextToken());
 		
 		if((H >= 0 && H <= 23) && (M >= 0 && M <= 59)) {
-			M -= 45;
-			if(M < 0) {
-				M += 60;
-				H--;
-				if(H < 0)
-					H = 23;
-			}
+			H = (M < 45) ? ((H < 1) ? (H + 23) : H - 1) : H;
+			M = (M < 45) ? (M + 15) : (M - 45);
+			
 			System.out.println(H + " " + M);
 		}
 		
