@@ -1,4 +1,4 @@
-package N2741;
+package N2742;
 
 import java.io.*;
 import java.util.*;
@@ -14,8 +14,8 @@ class Main {
 		int N = Integer.parseInt(st.nextToken());
 		
 		if(N > 0)
-			for(int n = 0; n < N; n++)
-				bw.write((n+1) + "\n");
+			for(int n = N; n > 0; n--)
+				bw.write(n + "\n");
 		
 		br.close();
 		bw.flush();
