@@ -6,7 +6,6 @@ import java.util.*;
 class Main {
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		//BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		StringBuilder sb = new StringBuilder(); 
 				
 		StringTokenizer st = null;
@@ -21,14 +20,10 @@ class Main {
 				int A = Integer.parseInt(st.nextToken());
 				int B = Integer.parseInt(st.nextToken());
 				
-				//bw.write(A + B + "\n");
-				//sb.append(A + B + "\n");
 				sb.append(A + B).append("\n");
 			}
 		}
 		br.close();
-		//bw.flush();
-		//bw.close();
 		System.out.println(sb);
 	}
 }
