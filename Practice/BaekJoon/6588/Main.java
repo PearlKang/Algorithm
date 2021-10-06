@@ -8,14 +8,23 @@ class Main {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		
+		StringTokenizer st = null;
+
 		int n = 0;
 		int count = 0;
 		
-		while((n = Integer.parseInt((new StringTokenizer(br.readLine().replace("", "0")).nextToken()))) != 0
-				&& count++ < 100000) {
+		while(count++ < 100000) {
+			st = new StringTokenizer(br.readLine());
+			n = Integer.parseInt(st.nextToken());
+			
+			if(n == 0)
+				break;
+			
+			int goldbach = Goldbach(n); 
+			
 			if(n >= 6 && n <= 1000000 && (n % 2 == 0)) {
-				if(Goldbach(n) != 0)
-					bw.write(n + " = " + Goldbach(n) + " + " + (n - Goldbach(n)) + "\n");
+				if(goldbach != 0)
+					bw.write(n + " = " + goldbach + " + " + (n - goldbach) + "\n");
 			}
 		}
 		
@@ -36,7 +45,7 @@ class Main {
 	}
 	
 	public static int Goldbach(int num) {
-		for(int i = 0; i < num/2; i++)
+		for(int i = 0; i <= num/2; i++)
 			if(isPrime(i) && isPrime(num - i))
 				return i;
 		
