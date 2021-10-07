@@ -22,7 +22,7 @@ class Main {
 				while(st.hasMoreTokens()) {
 					String tmp = st.nextToken();
 					if(tmp.length() <= 20)
-						bw.write(String.valueOf(reverse(tmp)) + " ");
+						bw.write(reverse(tmp) + " ");
 				}
 				bw.write("\n");
 			}
@@ -33,13 +33,13 @@ class Main {
 		bw.close();
 	}
 	
-	public static char[] reverse(String input) {
+	public static String reverse(String input) {
 		char[] output = new char[input.length()];
 		
 		for(int i = 0; i < input.length(); i++) {
 			output[i] = input.charAt(input.length() - i - 1);
 		}
 		
-		return output;
+		return String.valueOf(output);
 	}
 }
