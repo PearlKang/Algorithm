@@ -36,9 +36,8 @@ class Main {
 	public static char[] reverse(String input) {
 		char[] output = new char[input.length()];
 		
-		for(int i = 0; i < input.length(); i++) {
+		for(int i = 0; i < input.length(); i++)
 			output[i] = input.charAt(input.length() - i - 1);
-		}
 		
 		return output;
 	}
