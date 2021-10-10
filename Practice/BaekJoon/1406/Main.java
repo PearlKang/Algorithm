@@ -14,11 +14,11 @@ class Main {
 		String input = st.nextToken();
 		int N = input.length();
 		
-		Stack<Character> lStack = new Stack<Character>();
-		Stack<Character> rStack = new Stack<Character>();
+		Deque<Character> lStack = new ArrayDeque<>();
+		Deque<Character> rStack = new ArrayDeque<>();
 		
 		for(int i = 0; i < N; i++)
-			lStack.push(input.charAt(i));
+			lStack.addLast(input.charAt(i));
 
 		if(N <= 100000) {
 			st = new StringTokenizer(br.readLine());
@@ -30,24 +30,24 @@ class Main {
 					
 					switch(st.nextToken()) {
 					case "L":
-						if(lStack.size() != 0)
-							rStack.push(lStack.pop());
+						if(!lStack.isEmpty())
+							rStack.addFirst(lStack.removeLast());
 						break;
 					case "D":
-						if(rStack.size() != 0)
-							lStack.push(rStack.pop());
+						if(!rStack.isEmpty())
+							lStack.addLast(rStack.removeFirst());
 						break;
 					case "B":
-						if(lStack.size() != 0)
-							lStack.pop();
+						if(!lStack.isEmpty())
+							lStack.removeLast();
 						break;
 					case "P":
-						lStack.push(st.nextToken().charAt(0));
+						lStack.addLast(st.nextToken().charAt(0));
 						break;
 					}
 				}
 				while(!lStack.isEmpty()) {
-					rStack.push(lStack.pop());
+					bw.write(lStack.pop());
 				}
 				while(!rStack.isEmpty()) {
 					bw.write(rStack.pop());
