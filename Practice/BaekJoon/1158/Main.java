@@ -2,19 +2,18 @@ package N1158;
 
 import java.io.*;
 import java.util.*;
-//Josephus
+
 class Main {
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		
-		StringTokenizer st = null;
-		st = new StringTokenizer(br.readLine());
+		Queue<Integer> queue = new ArrayDeque<>();
+
+		String[] input = br.readLine().split(" ");
 		
-		Queue<Integer> queue = new LinkedList<>();
-		
-		int N = Integer.parseInt(st.nextToken());
-		int K = Integer.parseInt(st.nextToken());
+		int N = Integer.parseInt(input[0]);
+		int K = Integer.parseInt(input[1]);
 		
 		if((K >= 1 && K <= 5000) && (N >= 1 && N <= 5000) && (K <= N)) {
 			for(int n = 0; n < N; n++)
