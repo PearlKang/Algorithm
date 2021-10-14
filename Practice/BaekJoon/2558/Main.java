@@ -8,13 +8,8 @@ class Main {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		
-		StringTokenizer st = null;
-
-		st = new StringTokenizer(br.readLine());
-		int A = Integer.parseInt(st.nextToken());
-
-		st = new StringTokenizer(br.readLine());
-		int B = Integer.parseInt(st.nextToken());
+		int A = Integer.parseInt(br.readLine());
+		int B = Integer.parseInt(br.readLine());
 		
 		bw.write(A + B + "\n");
 		
