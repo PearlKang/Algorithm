@@ -11,7 +11,7 @@ class Main {
 		int A = Integer.parseInt(br.readLine());
 		int B = Integer.parseInt(br.readLine());
 		
-		bw.write(A + B + "\n");
+		bw.write(String.valueOf(A + B));
 		
 		br.close();
 		bw.flush();
