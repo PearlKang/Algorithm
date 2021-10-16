@@ -9,25 +9,16 @@ class Main {
 		StringBuilder sb = new StringBuilder();
 		
 		int[] input = new int[3];
-		int tmp = 0;
 
-		String[] temp = br.readLine().split("\s");
+		String[] temp = br.readLine().split(" ");
 		
 		for(int i = 0; i < 3; i++)
 			input[i] = Integer.parseInt(temp[i]);
 		
-		for(int i = 0; i < 2; i++) {
-			for(int j = 1; j < 3; j++) {
-				if(input[i] > input[j]) {
-					tmp = input[i];
-					input[i] = input[j];
-					input[j] = tmp;
-				}
-			}
-		}
+		Arrays.sort(input);
 		
-		for(int i = 0; i < 3; i++)
-			sb.append(input[i] + " ");
+		for(int i : input)
+			sb.append(i).append(" ");
 		
 		System.out.println(sb);
 		
