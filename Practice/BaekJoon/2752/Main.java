@@ -6,12 +6,12 @@ import java.util.*;
 class Main {
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+		StringBuilder sb = new StringBuilder();
 		
 		int[] input = new int[3];
 		int tmp = 0;
 
-		String[] temp = br.readLine().split(" ");
+		String[] temp = br.readLine().split("\s");
 		
 		for(int i = 0; i < 3; i++)
 			input[i] = Integer.parseInt(temp[i]);
@@ -27,10 +27,10 @@ class Main {
 		}
 		
 		for(int i = 0; i < 3; i++)
-			bw.write(input[i] + " ");
+			sb.append(input[i] + " ");
+		
+		System.out.println(sb);
 		
 		br.close();
-		bw.flush();
-		bw.close();
 	}
 }
