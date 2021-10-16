@@ -8,14 +8,13 @@ class Main {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		
-		StringTokenizer st = null;
-		st = new StringTokenizer(br.readLine());
-		
 		int[] input = new int[3];
 		int tmp = 0;
+
+		String[] temp = br.readLine().split(" ");
 		
 		for(int i = 0; i < 3; i++)
-			input[i] = Integer.parseInt(st.nextToken());
+			input[i] = Integer.parseInt(temp[i]);
 		
 		for(int i = 0; i < 2; i++) {
 			for(int j = 1; j < 3; j++) {
