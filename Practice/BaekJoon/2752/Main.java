@@ -6,7 +6,7 @@ import java.util.*;
 class Main {
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		StringBuilder sb = new StringBuilder();
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		
 		int[] input = new int[3];
 
@@ -17,11 +17,11 @@ class Main {
 		
 		Arrays.sort(input);
 		
-		for(int i : input)
-			sb.append(i).append(" ");
-		
-		System.out.println(sb);
+		for(int i = 0; i < 3; i++)
+			bw.write(input[i] + " ");
 		
 		br.close();
+		bw.flush();
+		bw.close();
 	}
 }
