@@ -1,18 +1,16 @@
 package N13597;
 
 import java.io.*;
-import java.util.*;
 
 class Main {
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		
-		StringTokenizer st = null;
-		st = new StringTokenizer(br.readLine());
+		String[] input = br.readLine().split(" ");
 		
-		int A = Integer.parseInt(st.nextToken());
-		int B = Integer.parseInt(st.nextToken());
+		int A = Integer.parseInt(input[0]);
+		int B = Integer.parseInt(input[1]);
 		
 		if((A >= 1 && A <= 13) && (B >= 1 && B <= 13)) {
 			if(A == B)
