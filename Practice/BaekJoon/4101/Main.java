@@ -1,20 +1,17 @@
 package N4101;
 
 import java.io.*;
-import java.util.*;
 
 class Main {
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		
-		StringTokenizer st = null;
-		
 		while(true) {
-			st = new StringTokenizer(br.readLine());
+			String[] input = br.readLine().split(" ");
 
-			int input1 = Integer.parseInt(st.nextToken());
-			int input2 = Integer.parseInt(st.nextToken());
+			int input1 = Integer.parseInt(input[0]);
+			int input2 = Integer.parseInt(input[1]);
 			
 			if(input1 == 0 && input2 == 0)
 				break;
