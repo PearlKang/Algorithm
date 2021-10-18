@@ -1,23 +1,18 @@
 package N4562;
 
 import java.io.*;
-import java.util.*;
 
 class Main {
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		
-		StringTokenizer st = null;
-		st = new StringTokenizer(br.readLine());
-		
-		int N = Integer.parseInt(st.nextToken());
+		int N = Integer.parseInt(br.readLine());
 		
 		for(int n = 0; n < N; n++) {
-			st = new StringTokenizer(br.readLine());
-			
-			int X = Integer.parseInt(st.nextToken());
-			int Y = Integer.parseInt(st.nextToken());
+			String[] input = br.readLine().split(" ");
+			int X = Integer.parseInt(input[0]);
+			int Y = Integer.parseInt(input[1]);
 			
 			if(X < Y)
 				bw.write("NO BRAINS\n");
