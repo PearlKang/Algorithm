@@ -15,7 +15,7 @@ class Main {
 			if(n0 == 0)
 				break;
 			
-			sb.append(++cnt).append((3 * n0) % 2 == 0 ? ". even " : ". odd ").append((3 * n0) % 2 == 0 ? n0 / 2 : (n0 - 1) / 2).append("\n");
+			sb.append(++cnt).append((3 * n0) % 2 == 0 ? ". even " : ". odd ").append((3 * n0) % 2 == 0 ? n0 / 2 : (n0 - 1) / 2).append(System.lineSeparator());
 		}
 		
 		br.close();
