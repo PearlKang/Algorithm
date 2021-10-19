@@ -8,13 +8,10 @@ class Main {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		
-		StringTokenizer st = null;
 		int n0, n1, cnt = 0;
 
 		while(true) {
-			st = new StringTokenizer(br.readLine());
-
-			n0 = Integer.parseInt(st.nextToken());
+			n0 = Integer.parseInt(br.readLine());
 
 			if(n0 == 0)
 				break;
