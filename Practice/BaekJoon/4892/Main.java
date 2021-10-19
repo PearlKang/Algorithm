@@ -15,12 +15,7 @@ class Main {
 			if(n0 == 0)
 				break;
 			
-			int n1 = 3 * n0;
-			
-			if(n1 % 2 == 0)
-				sb.append(++cnt).append(". even ").append(n0 / 2).append("\n");
-			else
-				sb.append(++cnt).append(". odd ").append((n0 - 1) / 2).append("\n");
+			sb.append(++cnt).append((3 * n0) % 2 == 0 ? ". even " : ". odd ").append((3 * n0) % 2 == 0 ? n0 / 2 : (n0 - 1) / 2).append("\n");
 		}
 		
 		br.close();
