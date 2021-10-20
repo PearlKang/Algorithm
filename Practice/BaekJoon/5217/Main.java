@@ -8,16 +8,11 @@ class Main {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		
-		StringTokenizer st = null;
-		st = new StringTokenizer(br.readLine());
-
-		int T = Integer.parseInt(st.nextToken());
+		int T = Integer.parseInt(br.readLine());
 		
 		if(T < 100) {
 			for(int t = 0; t < T; t++) {
-				st = new StringTokenizer(br.readLine());
-				
-				int n = Integer.parseInt(st.nextToken());
+				int n = Integer.parseInt(br.readLine());
 				
 				if(n >= 1 && n <= 12) {
 					bw.write("Pairs for " + String.valueOf(n) + ": ");
