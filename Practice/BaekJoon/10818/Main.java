@@ -6,7 +6,7 @@ import java.util.*;
 class Main {
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+		StringBuilder sb = new StringBuilder();
 		
 		StringTokenizer st = null;
 		st = new StringTokenizer(br.readLine());
@@ -17,7 +17,6 @@ class Main {
 			st = new StringTokenizer(br.readLine());
 			
 			int min = 1000000, max = -1000000;
-			int[] array = new int[N];
 			
 			while(st.hasMoreTokens()) {
 				int tmp = Integer.parseInt(st.nextToken());
@@ -28,11 +27,10 @@ class Main {
 					max = tmp;
 			}
 			
-			bw.write(String.valueOf(min) + " " + String.valueOf(max));
+			sb.append(min).append(" ").append(max);
 		}
 		
 		br.close();
-		bw.flush();
-		bw.close();
+		System.out.println(sb);
 	}
 }
