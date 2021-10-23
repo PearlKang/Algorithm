@@ -20,11 +20,8 @@ class Main {
 			
 			while(st.hasMoreTokens()) {
 				int tmp = Integer.parseInt(st.nextToken());
-				
-				if(min > tmp)
-					min = tmp;
-				if(max < tmp)
-					max = tmp;
+				min = Math.min(min, tmp);
+				max = Math.max(max, tmp);
 			}
 			
 			sb.append(min).append(" ").append(max);
