@@ -16,15 +16,19 @@ class Main {
 		if(N >= 1 && N <= 1000000) {
 			st = new StringTokenizer(br.readLine());
 			
-			int i = 0;
+			int min = 1000000, max = -1000000;
 			int[] array = new int[N];
 			
-			while(st.hasMoreTokens())
-				array[i++] = Integer.parseInt(st.nextToken());
+			while(st.hasMoreTokens()) {
+				int tmp = Integer.parseInt(st.nextToken());
+				
+				if(min > tmp)
+					min = tmp;
+				if(max < tmp)
+					max = tmp;
+			}
 			
-			Arrays.sort(array);
-			
-			bw.write(String.valueOf(array[0]) + " " + array[array.length - 1]);
+			bw.write(String.valueOf(min) + " " + String.valueOf(max));
 		}
 		
 		br.close();
