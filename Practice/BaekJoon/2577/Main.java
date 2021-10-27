@@ -5,7 +5,6 @@ import java.io.*;
 class Main {
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		StringBuilder sb = new StringBuilder();
 		
 		int input = Integer.parseInt(br.readLine());
 		
@@ -19,10 +18,9 @@ class Main {
 			input /= 10;
 		}
 		
-		for(int i = 0; i < 10; i++)
-			sb.append(array[i]).append(System.lineSeparator());
+		for(int i : array)
+			System.out.println(i);
 			
-		System.out.println(sb);
 		br.close();
 	}
 }
