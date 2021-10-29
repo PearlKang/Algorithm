@@ -5,7 +5,6 @@ import java.io.*;
 class Main {
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		StringBuilder sb = new StringBuilder();
 
 		int[] array = new int[10];
 		int[] chk = new int[42];
@@ -21,8 +20,7 @@ class Main {
 			if(chk[i] == 1)
 				cnt++;
 		
-		sb.append(cnt);
-		System.out.println(sb);
+		System.out.println(cnt);
 		br.close();
 	}
 }
