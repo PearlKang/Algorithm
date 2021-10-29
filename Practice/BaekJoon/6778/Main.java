@@ -1,36 +1,25 @@
 package N6778;
 
 import java.io.*;
-import java.util.*;
 
 class Main {
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+		StringBuilder sb = new StringBuilder();
 		
-		StringTokenizer st = null;
+		int antenna = Integer.parseInt(br.readLine());
+		int eyes = Integer.parseInt(br.readLine());
 		
-		st = new StringTokenizer(br.readLine());
-		int antenna = Integer.parseInt(st.nextToken());
+		if(antenna >= 3 && eyes <= 4)
+			sb.append("TroyMartian\n");
 		
-		st = new StringTokenizer(br.readLine());
-		int eyes = Integer.parseInt(st.nextToken());
-		
-		if(antenna >= 3 && eyes <= 4) {
-			bw.write("TroyMartian");
-			bw.write(System.lineSeparator());
-		}
-		
-		if(antenna <= 6 && eyes >= 2) {
-			bw.write("VladSaturnian");
-			bw.write(System.lineSeparator());
-		}
+		if(antenna <= 6 && eyes >= 2)
+			sb.append("VladSaturnian\n");
 		
 		if(antenna <= 2 && eyes <= 3)
-			bw.write("GraemeMercurian");
+			sb.append("GraemeMercurian");
 		
+		System.out.print(sb);
 		br.close();
-		bw.flush();
-		bw.close();
 	}
 }
