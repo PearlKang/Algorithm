@@ -16,15 +16,18 @@ class Main {
 		st = new StringTokenizer(br.readLine());
 		int eyes = Integer.parseInt(st.nextToken());
 		
-		if(antenna >= 3 && eyes <= 4)
-			bw.write("TroyMartian\n");
+		if(antenna >= 3 && eyes <= 4) {
+			bw.write("TroyMartian");
+			bw.write(System.lineSeparator());
+		}
 		
-		if(antenna <= 6 && eyes >= 2)
-			bw.write("VladSaturnian\n");
+		if(antenna <= 6 && eyes >= 2) {
+			bw.write("VladSaturnian");
+			bw.write(System.lineSeparator());
+		}
 		
 		if(antenna <= 2 && eyes <= 3)
-			bw.write("GraemeMercurian\n");
-		
+			bw.write("GraemeMercurian");
 		
 		br.close();
 		bw.flush();
