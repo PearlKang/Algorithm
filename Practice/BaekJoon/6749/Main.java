@@ -1,25 +1,17 @@
 package N6749;
 
 import java.io.*;
-import java.util.*;
 
 class Main {
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+		StringBuilder sb = new StringBuilder();
 		
-		StringTokenizer st = null;
+		int Y = Integer.parseInt(br.readLine());
+		int W = Integer.parseInt(br.readLine());
 		
-		st = new StringTokenizer(br.readLine());
-		int Y = Integer.parseInt(st.nextToken());
-		
-		st = new StringTokenizer(br.readLine());
-		int W = Integer.parseInt(st.nextToken());
-		
-		bw.write(String.valueOf(Y + (W - Y) * 2));
-		
+		sb.append(Y + (W - Y) * 2);
+		System.out.println(sb);
 		br.close();
-		bw.flush();
-		bw.close();
 	}
 }
