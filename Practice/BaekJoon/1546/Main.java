@@ -6,6 +6,7 @@ import java.util.*;
 class Main {
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringBuilder sb = new StringBuilder();
 		
 		StringTokenizer st = null;
 		
@@ -31,9 +32,10 @@ class Main {
 			for(int n = 0; n < N; n++)
 				sum += score[n];
 			
-			System.out.println(sum/N);
+			sb.append(sum/N);
 		}
 		
+		System.out.println(sb);
 		br.close();
 	}
 }
