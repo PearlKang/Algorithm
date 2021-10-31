@@ -1,32 +1,20 @@
 package N7891;
 
 import java.io.*;
-import java.util.*;
 
 class Main {
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+		StringBuilder sb = new StringBuilder();
 		
-		StringTokenizer st = null;
-		st = new StringTokenizer(br.readLine());
-		int t = Integer.parseInt(st.nextToken());
+		int t = Integer.parseInt(br.readLine());
 		
-		if(t <= 100) {
-			for(int i = 0; i < t; i++) {
-				st = new StringTokenizer(br.readLine());
-				int x = Integer.parseInt(st.nextToken());
-				int y = Integer.parseInt(st.nextToken());
-				
-				if((x >= -1000000000 && x <= 1000000000) && (y >= -1000000000 && y <= 1000000000)) {
-					bw.write(String.valueOf(x + y));
-					bw.write(System.lineSeparator());
-				}
-			}
+		for(int i = 0; i < t; i++) {
+			String[] input = br.readLine().split(" ");
+			sb.append(Integer.parseInt(input[0]) + Integer.parseInt(input[1])).append(System.lineSeparator());
 		}
 		
+		System.out.println(sb);
 		br.close();
-		bw.flush();
-		bw.close();
 	}
 }
