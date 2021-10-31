@@ -12,11 +12,11 @@ class Main {
 		double M = 0, sum = 0;
 		
 		for(int n = 0; n < N; n++)
-			if(M < Integer.parseInt(score[n]))
-				M = Integer.parseInt(score[n]);
+			if(M < Double.parseDouble(score[n]))
+				M = Double.parseDouble(score[n]);
 
 		for(int n = 0; n < N; n++)
-			sum += Integer.parseInt(score[n]) * 100 / M;
+			sum += Double.parseDouble(score[n]) * 100 / M;
 
 		System.out.println(sum/N);
 		
