@@ -5,7 +5,7 @@ import java.io.*;
 class Main {
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+		StringBuilder sb = new StringBuilder();
 		
 		int C = Integer.parseInt(br.readLine());
 		
@@ -27,11 +27,9 @@ class Main {
 				if(Integer.parseInt(input[n]) > avg)
 					cnt++;
 			
-			bw.write(String.format("%.3f", cnt*100/N) + "%");
-			bw.write(System.lineSeparator());
+			sb.append(String.format("%.3f", cnt*100/N)).append("%").append(System.lineSeparator());
 		}
+		System.out.println(sb);
 		br.close();
-		bw.flush();
-		bw.close();
 	}
 }
