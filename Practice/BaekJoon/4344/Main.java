@@ -18,19 +18,17 @@ class Main {
 			int N = Integer.parseInt(st.nextToken());
 			int[] score = new int[N];
 			int sum = 0;
-			double avg = 0;
 			double cnt = 0;
 			
 			if(N < 1 || N > 1000)
 				continue;
 			
-			for(int n = 0; n < N; n++)
+			for(int n = 0; n < N; n++) {
 				score[n] = Integer.parseInt(st.nextToken());
-			
-			for(int n = 0; n < N; n++)
 				sum += score[n];
+			}
 			
-			avg = sum / N;
+			double avg = sum / N;
 			
 			for(int n = 0; n < N; n++)
 				if(score[n] > avg)
