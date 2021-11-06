@@ -4,19 +4,17 @@ class Main {
 	public static void main(String[] args) throws Exception {
 		StringBuilder sb = new StringBuilder();
 		
-		boolean flag = false;
+		boolean[] chk = new boolean[10001];
 		
-		for(int i = 1; i <= 10000; i++) {
-			for(int j = 1; j < i; j++)
-				if(i == dn(j))
-					flag = true;
-			
-			if(!flag)
+		for(int i = 1; i <= 10000; i++)
+			if(dn(i) <= 10000)
+				chk[dn(i)] = true;
+		
+		for(int i = 1; i <= 10000; i++)
+			if(!chk[i])
 				sb.append(i).append(System.lineSeparator());
-			
-			flag = false;
-		}
-		System.out.println(sb);
+		
+		System.out.print(sb);
 	}
 	
 	public static int dn(int input) {
