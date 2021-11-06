@@ -2,6 +2,8 @@ package N4673;
 
 class Main {
 	public static void main(String[] args) throws Exception {
+		StringBuilder sb = new StringBuilder();
+		
 		boolean flag = false;
 		
 		for(int i = 1; i <= 10000; i++) {
@@ -10,10 +12,11 @@ class Main {
 					flag = true;
 			
 			if(!flag)
-				System.out.println(i);
+				sb.append(i).append(System.lineSeparator());
 			
 			flag = false;
 		}
+		System.out.println(sb);
 	}
 	
 	public static int dn(int input) {
