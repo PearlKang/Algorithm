@@ -1,24 +1,19 @@
 package N1065;
 
 import java.io.*;
-import java.util.*;
 
 class Main {
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+		StringBuilder sb = new StringBuilder();
 		
-		StringTokenizer st = null;
-		
-		st = new StringTokenizer(br.readLine());
-		int N = Integer.parseInt(st.nextToken());
+		int N = Integer.parseInt(br.readLine());
 		
 		if(N > 0 && N <= 1000)
-			bw.write(String.valueOf(arithmeticSequence(N)));
+			sb.append(arithmeticSequence(N));
 		
+		System.out.print(sb);
 		br.close();
-		bw.flush();
-		bw.close();
 	}
 	
 	public static int arithmeticSequence(int input) {
