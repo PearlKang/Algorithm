@@ -1,21 +1,16 @@
 package N9713;
 
 import java.io.*;
-import java.util.*;
 
 class Main {
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+		StringBuilder sb = new StringBuilder();
 		
-		StringTokenizer st = null;
-		
-		st = new StringTokenizer(br.readLine());
-		int T = Integer.parseInt(st.nextToken());
+		int T = Integer.parseInt(br.readLine());
 		
 		for(int t = 0; t < T; t++) {
-			st = new StringTokenizer(br.readLine());
-			int N = Integer.parseInt(st.nextToken());
+			int N = Integer.parseInt(br.readLine());
 			
 			int n, a = 1, d = 2, l;
 			
@@ -29,12 +24,9 @@ class Main {
 			else
 				l = N;
 			
-			bw.write(String.valueOf(n * (a + l) / 2));
-			bw.write(System.lineSeparator());
+			sb.append(n * (a + l) / 2).append(System.lineSeparator());
 		}
-		
+		System.out.println(sb);
 		br.close();
-		bw.flush();
-		bw.close();
 	}
 }
