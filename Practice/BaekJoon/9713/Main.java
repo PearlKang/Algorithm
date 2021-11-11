@@ -17,7 +17,19 @@ class Main {
 			st = new StringTokenizer(br.readLine());
 			int N = Integer.parseInt(st.nextToken());
 			
-			bw.write(String.valueOf(((N % 2 == 0) ? (N / 2) : (N / 2 + 1)) * (1 + ((N % 2 == 0) ? (N - 1) : (N))) / 2));
+			int n, a = 1, d = 2, l;
+			
+			if(N % 2 == 0)
+				n = N / 2;
+			else
+				n = N / 2 + 1;
+			
+			if(N % 2 == 0)
+				l = N - 1;
+			else
+				l = N;
+			
+			bw.write(String.valueOf(n * (a + l) / 2));
 			bw.write(System.lineSeparator());
 		}
 		
