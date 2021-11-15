@@ -13,21 +13,23 @@ class Main {
 		st = new StringTokenizer(br.readLine());
 		String S = st.nextToken().toLowerCase();
 		
-		if(S.length() > 0  && S.length() <= 100) {
-			for(int i = 0; i < 26; i++) {
-				boolean flag = false;
-
-				for(int s = 0; s < S.length(); s++) {
-					if(S.charAt(s) == (97 + i)) {
-						bw.write(String.valueOf(S.indexOf(S.charAt(s))));
-						flag = true;
-						break;
-					}
-				}
-				if(!flag)
-					bw.write(String.valueOf(-1));
-				bw.write(" ");
+		int[] output = new int[26];
+		
+		for(int i = 0; i < 26; i++)
+			output[i] = -1;
+		
+		for(int i = 0; i < S.length(); i++) {
+			char input = S.charAt(i);
+			
+			if(output[input - 'a'] == -1) {
+				output[input - 'a'] = i;
+				continue;
 			}
+		}
+		
+		for(int i:output) {
+			bw.write(String.valueOf(i));
+			bw.write(" ");
 		}
 		bw.flush();
 		bw.close();
