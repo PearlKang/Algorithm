@@ -11,25 +11,29 @@ class Main {
 		StringTokenizer st = null;
 		
 		st = new StringTokenizer(br.readLine());
-		String input = st.nextToken().toUpperCase();
+		String input = st.nextToken();
+		
+		int[] array = new int[26];
+		
+		for(int i = 0; i < input.length(); i++) {
+			if(input.charAt(i) >= 'a')
+				array[input.charAt(i) - 'a']++;
+			else
+				array[input.charAt(i) - 'A']++;
+		}
 		
 		int max = 0;
 		char maxChar = ' ';
-		boolean flag = false;
 		
-		for(int i = 0; i < input.length(); i++) {
-			int length = input.length() - input.replace(String.valueOf(input.charAt(i)), "").length();
-			if(max < length) {
-				max = length;
-				maxChar = input.charAt(i);
+		for(int i = 0; i < 26; i++) {
+			if(max < array[i]) {
+				max = array[i];
+				maxChar = (char)(i + 'A');
 			}
-			else if(max == length)
-				flag = true;
+			else if(max == array[i])
+				maxChar = '?';
 		}
-		if(!flag)
 			bw.write(String.valueOf(maxChar));
-		else
-			bw.write("?");
 		
 		bw.flush();
 		bw.close();
