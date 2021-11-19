@@ -1,17 +1,12 @@
 package N5622;
 
 import java.io.*;
-import java.util.*;
 
 class Main {
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		
-		StringTokenizer st = null;
-		
-		st = new StringTokenizer(br.readLine());
-		String input = st.nextToken();
+		String input = br.readLine();
         
 		int cnt = 0;
 		int length = input.length();
@@ -62,10 +57,8 @@ class Main {
 				break;
 			}
 		}
-		bw.write(String.valueOf(cnt));
-		
-		bw.flush();
-		bw.close();
+		System.out.print(cnt);
+
 		br.close();
 	}
 }
