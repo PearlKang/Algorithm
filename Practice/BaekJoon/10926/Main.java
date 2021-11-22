@@ -15,9 +15,8 @@ class Main {
 		String input = st.nextToken();
 		int length = input.length();
 		
-		if(length <= 50) {
+		if(length <= 50)
 			bw.write(input + "??!");
-		}
 		
 		bw.flush();
 		bw.close();
