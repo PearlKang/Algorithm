@@ -27,7 +27,7 @@ class Main {
 		
 		for(int i = 0;; i++)
 			if(input > sum(i) && input <= sum(i+1))
-				return i;
+				return i+1;
 	}
 	
 	public static long sum(long input) {
