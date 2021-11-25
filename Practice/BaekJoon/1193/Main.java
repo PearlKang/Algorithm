@@ -25,28 +25,18 @@ class Main {
 			return "1/1";
 
 		int output = sequence(input);
-		int numerator;
-		int denominator;
+		int numerator = 1;
+		int denominator = output+1;
 		
-		if(output % 2 == 1) {
-			numerator = 1;
-			denominator = output+1;
-			for(int i = 1; i < input - sum(output); i++) {
-				numerator++;
-				denominator--;
-			}
+		for(int i = 1; i < input - sum(output); i++) {
+			numerator++;
+			denominator--;
 		}
-		else {
-			numerator = output+1;
-			denominator = 1;
-			for(int i = 1; i < input - sum(output); i++) {
-				numerator--;
-				denominator++;
-			}
-		}
-		
-		return numerator + "/" + denominator;
-		
+
+		if(output % 2 == 1)
+			return numerator + "/" + denominator;	
+		else
+			return denominator + "/" + numerator;
 	}
 	
 	public static int sequence(int input) {
