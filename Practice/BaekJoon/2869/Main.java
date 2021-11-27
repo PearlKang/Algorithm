@@ -13,18 +13,12 @@ class Main {
 		int A = Integer.parseInt(st.nextToken());
 		int B = Integer.parseInt(st.nextToken());
 		int V = Integer.parseInt(st.nextToken());
-		int location = 0;
+		int count = (V-B)/(A-B);
 		
-		for(int count = 1;; count++) {
-			location += A;
-			
-			if(location >= V) {
-				bw.write(String.valueOf(count));
-				break;
-			}
-			
-			location -= B;
-		}
+		if((V-B)%(A-B) != 0)
+			bw.write(String.valueOf(count+1));
+		else
+			bw.write(String.valueOf(count));
 		
 		bw.flush();
 		bw.close();
