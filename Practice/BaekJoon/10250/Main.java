@@ -20,18 +20,9 @@ class Main {
 			
 			if((H >= 1 && H <= 99) && (W >= 1 && W <= 99) && (N >= 1 && N <= H * W)) {
 				if(N % H == 0)
-					bw.write(String.valueOf(N / H));
+					bw.write(String.valueOf((N / H) * 100 + N));
 				else
-					bw.write(String.valueOf(N % H));
-				
-				if(N / H < 10)
-					bw.write(String.valueOf(0));
-				
-				if(N % H == 0)
-					bw.write(String.valueOf(N));
-				else
-					bw.write(String.valueOf(N / H + 1));
-				
+					bw.write(String.valueOf((N % H) * 100 + N / H + 1));	
 				bw.write(System.lineSeparator());
 			}
 		}
