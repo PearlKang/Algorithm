@@ -14,28 +14,18 @@ class Main {
 		
 		if(T >= 1 && T <= 4) {
 			st = new StringTokenizer(br.readLine());
-			int A = Integer.parseInt(st.nextToken());
-			int B = Integer.parseInt(st.nextToken());
-			int C = Integer.parseInt(st.nextToken());
-			int D = Integer.parseInt(st.nextToken());
-			int E = Integer.parseInt(st.nextToken());
+			int[] array = new int[5];
+			int count = 0;
 			
-			if((A >= 1 && A <= 4) && (B >= 1 && B <= 4) && (C >= 1 && C <= 4) && (D >= 1 && D <= 4) && (E >= 1 && E <= 4)) {
-				int count = 0;
+			for(int i = 0; i < array.length; i++)
+				array[i] = Integer.parseInt(st.nextToken());
+			
+			for(int i = 0; i < array.length; i++)
+				if(array[i] >= 1 && array[i] <= 4)
+					if(T == array[i])
+						count++;
 				
-				if(T == A)
-					count++;
-				if(T == B)
-					count++;
-				if(T == C)
-					count++;
-				if(T == D)
-					count++;
-				if(T == E)
-					count++;
-				
-				bw.write(String.valueOf(count));
-			}
+			bw.write(String.valueOf(count));
 		}
 		
 		bw.flush();
