@@ -19,10 +19,15 @@ class Main {
 		int f = Integer.parseInt(st.nextToken());
 		
 		if((a >= -999 && a <= 999) && (b >= -999 && b <= 999) && (c >= -999 && c <= 999) && (d >= -999 && d <= 999) && (e >= -999 && e <= 999) && (f >= -999 && f <= 999)) {
-			if(b*d != a*e) {
-				bw.write(String.valueOf((b*f-c*e)/(b*d-a*e)));
-				bw.write(" ");
-				bw.write(String.valueOf((a*f-c*d)/(a*e-b*d)));
+			for (int i = -999; i < 1000; i++) {
+				for (int j = -999; j < 1000; j++) {
+					if(a*i + b*j == c && d*i + e*j == f) {
+						bw.write(String.valueOf(i));
+						bw.write(" ");
+						bw.write(String.valueOf(j));
+						break;
+					}
+				}
 			}
 		}
 		
