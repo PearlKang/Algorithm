@@ -20,9 +20,9 @@ class Main {
 		
 		if((a >= -999 && a <= 999) && (b >= -999 && b <= 999) && (c >= -999 && c <= 999) && (d >= -999 && d <= 999) && (e >= -999 && e <= 999) && (f >= -999 && f <= 999)) {
 			if(b*d != a*e) {
-				bw.write(String.valueOf((double)(b*f-c*e)/(b*d-a*e)));
+				bw.write(String.valueOf((b*f-c*e)/(b*d-a*e)));
 				bw.write(" ");
-				bw.write(String.valueOf((double)(a*f-c*d)/(a*e-b*d)));
+				bw.write(String.valueOf((a*f-c*d)/(a*e-b*d)));
 			}
 		}
 		
