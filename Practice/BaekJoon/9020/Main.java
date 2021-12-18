@@ -1,33 +1,27 @@
 package N9020;
 
 import java.io.*;
-import java.util.*;
 
 public class Main {
 	public static boolean[] prime = new boolean[10001];
 	
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+		StringBuilder sb = new StringBuilder();
 		
-		StringTokenizer st = null;
-		
-		st = new StringTokenizer(br.readLine());
-		int T = Integer.parseInt(st.nextToken());
+		int T = Integer.parseInt(br.readLine());
 		
 		isPrime();
 		
 		for(int t = 0; t < T; t++) {
-			st = new StringTokenizer(br.readLine());
-			int n = Integer.parseInt(st.nextToken());
+			int n = Integer.parseInt(br.readLine());
 			
 			if(n >= 4 && n <= 10000) {
 				int front = n/2;
 				int back = n/2;
 				while(true) {
 					if(!prime[front] && !prime[back]) {
-						bw.write(String.valueOf(front) + " " + String.valueOf(back));
-						bw.write(System.lineSeparator());
+						sb.append(front).append(" ").append(back).append(System.lineSeparator());
 						break;
 					}
 					front--;
@@ -35,9 +29,7 @@ public class Main {
 				}
 			}
 		}
-		
-		bw.flush();
-		bw.close();
+		System.out.print(sb);
 		br.close();
 	}
 	//Sieve Of Eratosthenes
