@@ -1,17 +1,12 @@
 package N23037;
 
 import java.io.*;
-import java.util.*;
 
 public class Main {
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		
-		StringTokenizer st = null;
-		
-		st = new StringTokenizer(br.readLine());
-		int n = Integer.parseInt(st.nextToken());
+		int n = Integer.parseInt(br.readLine());
 		
 		if(n >= 10000 && n < 100000) {
 			int sum = 0;
@@ -20,11 +15,8 @@ public class Main {
 				sum += Math.pow(n%10, 5);
 				n /= 10;
 			}
-			bw.write(String.valueOf(sum));
+			System.out.print(sum);
 		}
-		
-		bw.flush();
-		bw.close();
 		br.close();
 	}
 }
