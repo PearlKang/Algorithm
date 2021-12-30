@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.*;
 
 public class Main {
-	public static char[][] array;
+	public static String[][] array;
 	
 	public static void main(String args[]) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -13,7 +13,11 @@ public class Main {
 		
 		st = new StringTokenizer(br.readLine());
 		int N = Integer.parseInt(st.nextToken());
-		array = new char[N][N];
+		array = new String[N][N];
+		
+		for(int i = 0; i < N; i++)
+			for(int j = 0; j < N; j++)
+				array[i][j] = " ";
 		
 		if(N >= Math.pow(3, 1) && N <= Math.pow(3, 8) && ((N % Math.pow(3, 1) == 0) || (N % Math.pow(3, 2) == 0) || (N % Math.pow(3, 3) == 0) || (N % Math.pow(3, 4) == 0) || (N % Math.pow(3, 5) == 0) || (N % Math.pow(3, 6) == 0) || (N % Math.pow(3, 7) == 0) || (N % Math.pow(3, 8) == 0))) {
 			makeStar(0, 0, N);
@@ -31,7 +35,7 @@ public class Main {
 	
 	public static void makeStar(int x, int y, int n) {
 		if(n == 1)
-			array[x][y] = '*';
+			array[x][y] = "*";
 		else {
 			n /= 3;
 			for(int i = 0; i < 3; i++) {
