@@ -13,8 +13,6 @@ public class Main {
 		long N = Long.parseLong(st.nextToken());
 		long M = Long.parseLong(st.nextToken());
 		
-		System.out.println(9999999999);
-		
 		if(N == M)
 			bw.write(String.valueOf("1"));
 		else
