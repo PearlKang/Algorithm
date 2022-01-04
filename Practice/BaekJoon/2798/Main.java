@@ -25,7 +25,7 @@ public class Main {
 			
 			for(int i = 0; i < N-2; i++) {
 				for(int j = i+1; j < N-1; j++) {
-					for(int k = i+2; k < N; k++) {
+					for(int k = j+1; k < N; k++) {
 						if((output <= M) && (output < array[i] + array[j] + array[k]) && (array[i] + array[j] + array[k] <= M))
 							output = array[i] + array[j] + array[k];
 						
