@@ -13,52 +13,42 @@ public class Main {
 		int N = Integer.parseInt(st.nextToken());
 		int M = Integer.parseInt(st.nextToken());
 		
+		boolean[][] input = new boolean[N][M];
+		
 		if((N >= 8 && N <= 50) && (M >= 8 && M <= 50)) {
-			String[] input = new String[N];
-			int min = 1000000;
+			int min = 64;
 			int cnt;
 			
 			for(int n = 0; n < N; n++) {
 				st = new StringTokenizer(br.readLine());
-				input[n] = st.nextToken();
+				String tmp = st.nextToken();
+				
+				for(int m = 0; m < M; m++) {
+					if(tmp.charAt(m) == 'B')
+						input[n][m] = true;
+					else
+						input[n][m] = false;
+				}
 			}
 			
 			for(int n = 0; n < N-7; n++) {
 				for(int m = 0; m < M-7; m++) {
 					cnt = 0;
+					boolean standard = input[n][m];
 					
-					for(int n1 = n; n1 < n+7; n1++) {
-						for(int m1 = m; m1 < m+7; m1++) {
-							if((input[n1].charAt(m1) != input[n1].charAt(m1+1)) && (input[n1].charAt(m1) != input[n1+1].charAt(m1))) {
-								continue;
-							}
-							else {
-								if((input[n1].charAt(m1) == input[n1].charAt(m1+1)) && (input[n1].charAt(m1) == input[n1+1].charAt(m1))) {
-									if(input[n1].charAt(m1) == 'B')
-										input[n1] = input[n1].substring(0, m1) + "W" + input[n1].substring(m1+1);
-									else
-										input[n1] = input[n1].substring(0, m1) + "B" + input[n1].substring(m1+1);
-								}
-								else if((input[n1].charAt(m1) != input[n1].charAt(m1+1)) && (input[n1].charAt(m1) == input[n1+1].charAt(m1))) {
-									if(input[n1].charAt(m1) == 'B')
-										input[n1+1] = input[n1+1].substring(0, m1) + "W" + input[n1+1].substring(m1+1);
-									else
-										input[n1+1] = input[n1+1].substring(0, m1) + "B" + input[n1+1].substring(m1+1);
-								}
-								else if((input[n1].charAt(m1) == input[n1].charAt(m1+1)) && (input[n1].charAt(m1) != input[n1+1].charAt(m1))) {
-									if(input[n1].charAt(m1) == 'B')
-										input[n1] = input[n1].substring(0, m1+1) + "W" + input[n1].substring(m1+2);
-									else
-										input[n1] = input[n1].substring(0, m1+1) + "B" + input[n1].substring(m1+2);
-								}
+					for(int n1 = n; n1 < n+8; n1++) {
+						for(int m1 = m; m1 < m+8; m1++) {
+							if(standard != input[n1][m1])
 								cnt++;
-							}
+							
+							standard = !standard;
 						}
+						
+						standard = !standard;
 					}
 					
-					if(min > cnt) {
-						min = cnt;
-					}
+					cnt = Math.min(cnt, 64-cnt);
+					min = Math.min(cnt, min);
 				}
 			}
 			
