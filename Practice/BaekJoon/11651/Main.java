@@ -32,12 +32,7 @@ public class Main {
 						array[n][1] = array[m][1];
 						array[m][1] = tmp;
 					}
-				}
-			}
-			
-			for(int n = 0; n < N; n++) {
-				for(int m = n; m < N; m++) {
-					if(array[n][1] == array[m][1]) {
+					else if(array[n][1] == array[m][1]) {
 						if(array[n][0] > array[m][0]) {
 							int tmp = array[n][0];
 							array[n][0] = array[m][0];
