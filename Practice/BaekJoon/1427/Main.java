@@ -21,17 +21,17 @@ public class Main {
 				tmp /= 10;
 			}
 			
-			String[] input = new String[cnt];
+			Integer[] input = new Integer[cnt];
 			
 			for(int n = 0; n < cnt; n++) {
-				input[n] = String.valueOf(N % 10);
+				input[n] = N % 10;
 				N /= 10;
 			}
 			
 			Arrays.sort(input, Collections.reverseOrder());
 			
 			for(int n = 0; n < cnt; n++)
-				bw.write(input[n]);
+				bw.write(String.valueOf(input[n]));
 		}
 		
 		bw.flush();
