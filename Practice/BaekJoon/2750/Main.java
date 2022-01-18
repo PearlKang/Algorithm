@@ -12,19 +12,19 @@ public class Main {
 		st = new StringTokenizer(br.readLine());
 		int N = Integer.parseInt(st.nextToken());
 		
-		int[] array = new int[N];
+		boolean[] array = new boolean[2001];
 		
 		if(N >= 1 && N <= 1000) {
 			for(int n = 0; n < N; n++) {
 				st = new StringTokenizer(br.readLine());
-				array[n] = Integer.parseInt(st.nextToken());
+				array[Integer.parseInt(st.nextToken()) + 1000] = true;
 			}
 			
-			Arrays.sort(array);
-			
-			for(int n = 0; n < N; n++) {
-				bw.write(String.valueOf(array[n]));
-				bw.write(System.lineSeparator());
+			for(int n = 0; n < 2001; n++) {
+				if(array[n]) {
+					bw.write(String.valueOf(n-1000));
+					bw.write(System.lineSeparator());
+				}
 			}
 		}
 		
