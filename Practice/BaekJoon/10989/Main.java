@@ -12,7 +12,7 @@ public class Main {
 		st = new StringTokenizer(br.readLine());
 		int N = Integer.parseInt(st.nextToken());
 		
-		int[] array = new int[10000000];
+		int[] array = new int[10001];
 		
 		if(N >= 1 && N <= 10000000) {
 			for(int n = 0; n < N; n++) {
@@ -20,7 +20,7 @@ public class Main {
 				array[Integer.parseInt(st.nextToken())]++;
 			}
 			
-			for(int n = 0; n < 10000; n++) {
+			for(int n = 1; n < 10001; n++) {
 				if(array[n] > 0) {
 					for(int i = 0; i < array[n]; i++) {
 						bw.write(String.valueOf(n));
