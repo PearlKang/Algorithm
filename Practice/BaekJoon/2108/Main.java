@@ -14,78 +14,64 @@ public class Main {
 		
 		if((N >= 1 && N <= 500000) && (N % 2 == 1)) {
 			int[] array = new int[8001];
-			int total = 0;
-			
+			int sum = 0;
+			int cnt = 0;
+			int modeCnt = 0;
+			int mode = 0;
+			int max = Integer.MIN_VALUE;
+			int min = Integer.MAX_VALUE;
+			int median = 0;
+			int medianCnt = 0;
+
 			for(int n = 0; n < N; n++) {
 				st = new StringTokenizer(br.readLine());
 				int tmp = Integer.parseInt(st.nextToken());
 				array[tmp + 4000]++;
-				total += tmp;
+				sum += tmp;
+				
+				if(max < tmp)
+					max = tmp;
+				if(min > tmp)
+					min = tmp;
 			}
 			
-			bw.write(String.valueOf(total/N >= 0 ? Math.round(total/N) : Math.round(total/N) - 1));
-			bw.write(System.lineSeparator());
-			
-			
-			int mid = 0;
-			int midCnt = 0;
-			
 			for(int n = 0; n < 8001; n++) {
-				midCnt += array[n];
+				medianCnt += array[n];
 				
-				if(midCnt >= (N/2 + 1)) {
-					mid = n - 4000;
+				if(medianCnt >= (N/2 + 1)) {
+					median = n - 4000;
 					break;
 				}
 			}
 			
-			bw.write(String.valueOf(mid));
-			bw.write(System.lineSeparator());
-			
-			
-			int cnt = 0;
-			int manyNCnt = 0;
-			int manyN = 0;
-			
 			for(int n = 0; n < 8001; n++) {
-				if(cnt < array[n]) {
+				if(cnt < array[n] && array[n] > 0) {
 					cnt = array[n];
 				}
 			}
 			
 			for(int n = 0; n < 8001; n++) {
-				if(array[n] == cnt) {
+				if(array[n] == cnt && array[n] > 0) {
 					cnt = array[n];
-					manyNCnt++;
+					modeCnt++;
 					
-					if(manyNCnt == 1 || manyNCnt == 2) {
-						manyN = n - 4000;
+					if(modeCnt > 2) {
+						break;
+					}
+					
+					if(modeCnt == 1 || modeCnt == 2) {
+						mode = n - 4000;
 					}
 				}
 			}
 			
-			bw.write(String.valueOf(manyN));
+			bw.write(String.valueOf((int)Math.round((double)sum/N)));
 			bw.write(System.lineSeparator());
-			
-			
-			int maxN = 0;
-			int minN = 0;
-			
-			for(int n = 0; n < 8001; n++) {
-				if(array[n] > 0) {
-					minN = n - 4000;
-					break;
-				}
-			}
-			
-			for(int n = 8000; n >= 0; n--) {
-				if(array[n] > 0) {
-					maxN = n - 4000;
-					break;
-				}
-			}
-			
-			bw.write(String.valueOf(Math.abs(maxN - minN)));
+			bw.write(String.valueOf(median));
+			bw.write(System.lineSeparator());
+			bw.write(String.valueOf(mode));
+			bw.write(System.lineSeparator());
+			bw.write(String.valueOf(max - min));
 			bw.write(System.lineSeparator());
 		}
 		
