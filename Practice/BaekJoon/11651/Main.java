@@ -11,43 +11,26 @@ public class Main {
 		
 		st = new StringTokenizer(br.readLine());
 		int N = Integer.parseInt(st.nextToken());
+		int[][] array = new int[N][2];
 		
 		if(N >= 1 && N <= 100000) {
-			int[][] array = new int[N][2];
-			
 			for(int n = 0; n < N; n++) {
 				st = new StringTokenizer(br.readLine());
 				array[n][0] = Integer.parseInt(st.nextToken());
 				array[n][1] = Integer.parseInt(st.nextToken());
 			}
 			
-			for(int n = 0; n < N; n++) {
-				for(int m = n; m < N; m++) {
-					if(array[n][1] > array[m][1]) {
-						int tmp = array[n][0];
-						array[n][0] = array[m][0];
-						array[m][0] = tmp;
-						
-						tmp = array[n][1];
-						array[n][1] = array[m][1];
-						array[m][1] = tmp;
-					}
-					else if(array[n][1] == array[m][1]) {
-						if(array[n][0] > array[m][0]) {
-							int tmp = array[n][0];
-							array[n][0] = array[m][0];
-							array[m][0] = tmp;
-							
-							tmp = array[n][1];
-							array[n][1] = array[m][1];
-							array[m][1] = tmp;
-						}
-					}
+			Arrays.sort(array, (e1, e2) -> {
+				if(e1[1] == e2[1]) {
+					return e1[0] - e2[0];
 				}
-			}
+				else {
+					return e1[1] - e2[1];
+				}
+			});
 			
 			for(int n = 0; n < N; n++) {
-				bw.write(String.valueOf(array[n][0]) + " " + String.valueOf(array[n][1]));
+				bw.write(array[n][0] + " " + array[n][1]);
 				bw.write(System.lineSeparator());
 			}
 		}
