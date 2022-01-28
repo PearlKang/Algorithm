@@ -13,7 +13,6 @@ public class Main {
 		int N = Integer.parseInt(st.nextToken());
 		
 		int[] array = new int[N];
-		// int[] sort = array.clone();
 		int[] sort = new int[N];
 		
 		Map<Integer, Integer> map = new HashMap<Integer, Integer>();
@@ -46,18 +45,3 @@ public class Main {
 		br.close();
 	}
 }
-/*
-for(int n = 0; n < N; n++) {
-	for(int m = 0; m < N; m++) {
-		if(array[n][0] == tmp[m]) {
-			if(m != 0 && tmp[m] == tmp[m-1]) {
-				array[n][1] = array[n-1][1];
-			}
-			else {
-				array[n][1] = m;
-			}
-			break;
-		}
-	}
-}
-*/
