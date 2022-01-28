@@ -11,33 +11,33 @@ public class Main {
 		
 		st = new StringTokenizer(br.readLine());
 		int N = Integer.parseInt(st.nextToken());
+		
 		int[] array = new int[N];
-		int[] tmp = new int[N];
-		int[] rank = new int[N];
-		rank[0] = 0;
+		// int[] sort = array.clone();
+		int[] sort = new int[N];
+		
+		Map<Integer, Integer> map = new HashMap<Integer, Integer>();
 		
 		if(N >= 1 && N <= 1000000) {
 			st = new StringTokenizer(br.readLine());
 			
 			for(int n = 0; n < N; n++) {
-				array[n] = Integer.parseInt(st.nextToken());
-				tmp[n] = array[n];
+				array[n] = sort[n] = Integer.parseInt(st.nextToken());
 			}
 			
-			Arrays.sort(tmp);
+			Arrays.sort(sort);
 			
-			for(int n = 1, r = 0; n < N; n++) {
-				rank[n] = (tmp[n] == tmp[n-1]) ? r : ++r;
-			}
+			int rank = 0;
 			
-			for(int n = 0; n < N; n++) {
-				for(int m = 0; m < N; m++) {
-					if(array[n] == tmp[m]) {
-						bw.write(String.valueOf(rank[m]));
-						bw.write(" ");
-						break;
-					}
+			for(int i : sort) {
+				if(!map.containsKey(i)) {
+					map.put(i, rank++);
 				}
+			}
+			
+			for(int i : array) {
+				bw.write(String.valueOf(map.get(i)));
+				bw.write(" ");
 			}
 		}
 		
