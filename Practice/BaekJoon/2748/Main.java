@@ -12,7 +12,7 @@ public class Main {
 		
 		st = new StringTokenizer(br.readLine());
 		int n = Integer.parseInt(st.nextToken());
-		int[] fibonacci = new int[n+1];
+		long[] fibonacci = new long[n+1];
 		
 		if(n > 0 && n <= 90) {
 			for(int i = 0; i < fibonacci.length; i++) {
