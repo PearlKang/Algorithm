@@ -4,6 +4,8 @@ import java.io.*;
 import java.util.*;
 
 public class Main {
+	public static long[] array;
+	
 	public static void main(String args[]) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
@@ -12,26 +14,29 @@ public class Main {
 		
 		st = new StringTokenizer(br.readLine());
 		int n = Integer.parseInt(st.nextToken());
-		long[] fibonacci = new long[n+1];
+		array = new long[n+1];
+		
+		for(int i = 0; i < array.length; i++) {
+			array[i] = -1;
+		}
+		
+		array[0] = 0;
+		array[1] = 1;
 		
 		if(n > 0 && n <= 90) {
-			for(int i = 0; i < fibonacci.length; i++) {
-				if(i == 0) {
-					fibonacci[i] = 0;
-				}
-				else if(i == 1) {
-					fibonacci[i] = 1;
-				}
-				else {
-					fibonacci[i] = fibonacci[i-1] + fibonacci[i-2];
-				}
-			}
-			
-			bw.write(String.valueOf(fibonacci[n]));
+			bw.write(String.valueOf(fibonacci(n)));
 		}
 		
 		bw.flush();
 		bw.close();
 		br.close();
+	}
+	
+	public static long fibonacci(int input) {
+		if(array[input] == -1) {
+			array[input] = fibonacci(input-1) + fibonacci(input-2);
+		}
+		
+		return array[input];
 	}
 }
