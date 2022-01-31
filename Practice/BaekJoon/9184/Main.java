@@ -21,20 +21,7 @@ public class Main {
 				break;
 			}
 			
-			bw.write("w(");
-			bw.write(String.valueOf(a));
-			bw.write(", ");
-			bw.write(String.valueOf(b));
-			bw.write(", ");
-			bw.write(String.valueOf(c));
-			bw.write(") = ");
-			
-			a = a >= 20 ? 20 : (a <= 0 ? 0 : a);
-			b = b >= 20 ? 20 : (b <= 0 ? 0 : b);
-			c = c >= 20 ? 20 : (c <= 0 ? 0 : c);
-			
-			bw.write(String.valueOf(w(a, b, c)));
-			bw.write(System.lineSeparator());
+			bw.append("w(").append(String.valueOf(a)).append(", ").append(String.valueOf(b)).append(", ").append(String.valueOf(c)).append(") = ").append(String.valueOf(w(a, b, c))).append(System.lineSeparator());
 		}
 		
 		bw.flush();
@@ -43,7 +30,7 @@ public class Main {
 	}
 	
 	public static int w(int a, int b, int c) {
-		if(dp[a][b][c] != 0) {
+		if(a >= 0 && a <= 20 && b >= 0 && b <= 20 && c >= 0 && c <= 20 && dp[a][b][c] != 0) {
 			return dp[a][b][c];
 		}
 		
