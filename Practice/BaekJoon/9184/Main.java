@@ -4,16 +4,35 @@ import java.io.*;
 import java.util.*;
 
 public class Main {
-	public static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-	public static BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-	public static StringTokenizer st = null;
-	
-	public static int a;
-	public static int b;
-	public static int c;
+	public static int dp[][][] = new int[21][21][21];
 	
 	public static void main(String args[]) throws Exception {
-		while(input()) {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+		StringTokenizer st = null;
+		
+		while(true) {
+			st = new StringTokenizer(br.readLine());
+			int a = Integer.parseInt(st.nextToken());
+			int b = Integer.parseInt(st.nextToken());
+			int c = Integer.parseInt(st.nextToken());
+			
+			if(a == -1 && b == -1 && c == -1) {
+				break;
+			}
+			
+			bw.write("w(");
+			bw.write(String.valueOf(a));
+			bw.write(", ");
+			bw.write(String.valueOf(b));
+			bw.write(", ");
+			bw.write(String.valueOf(c));
+			bw.write(") = ");
+			
+			a = a >= 20 ? 20 : (a <= 0 ? 0 : a);
+			b = b >= 20 ? 20 : (b <= 0 ? 0 : b);
+			c = c >= 20 ? 20 : (c <= 0 ? 0 : c);
+			
 			bw.write(String.valueOf(w(a, b, c)));
 			bw.write(System.lineSeparator());
 		}
@@ -23,27 +42,22 @@ public class Main {
 		br.close();
 	}
 	
-	public static boolean input() throws Exception {
-		st = new StringTokenizer(br.readLine());
-		a = Integer.parseInt(st.nextToken());
-		b = Integer.parseInt(st.nextToken());
-		c = Integer.parseInt(st.nextToken());
+	public static int w(int a, int b, int c) {
+		if(dp[a][b][c] != 0) {
+			return dp[a][b][c];
+		}
 		
-		return a == -1 && b == -1 && c == -1 ? false : true;
-	}
-	
-	public static int w(int a1, int b1, int c1) {
-		if (a1 <= 0 || b1 <= 0 || c1 <= 0) {
+		if (a <= 0 || b <= 0 || c <= 0) {
 			return 1;
 		}
-		else if (a1 > 20 || b1 > 20 || c1 > 20) {
-			return w(20, 20, 20);
+		else if (a > 20 || b > 20 || c > 20) {
+			return dp[20][20][20] = w(20, 20, 20);
 		}
-		else if (a1 < b1 && b1 < c1) {
-			return w(a1, b1, c1-1) + w(a1, b1-1, c1-1) - w(a1, b1-1, c1);
+		else if (a < b && b < c) {
+			return dp[a][b][c] = w(a, b, c-1) + w(a, b-1, c-1) - w(a, b-1, c);
 		}
 		else {
-			return w(a1-1, b1, c1) + w(a1-1, b1-1, c1) + w(a1-1, b1, c1-1) - w(a1-1, b1-1, c1-1);
+			return dp[a][b][c] = w(a-1, b, c) + w(a-1, b-1, c) + w(a-1, b, c-1) - w(a-1, b-1, c-1);
 		}
 	}
 }
