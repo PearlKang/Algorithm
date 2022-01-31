@@ -21,7 +21,15 @@ public class Main {
 				break;
 			}
 			
-			bw.append("w(").append(String.valueOf(a)).append(", ").append(String.valueOf(b)).append(", ").append(String.valueOf(c)).append(") = ").append(String.valueOf(w(a, b, c))).append(System.lineSeparator());
+			bw.write("w(");
+			bw.write(String.valueOf(a));
+			bw.write(", ");
+			bw.write(String.valueOf(b));
+			bw.write(", ");
+			bw.write(String.valueOf(c));
+			bw.write(") = ");
+			bw.write(String.valueOf(w(a, b, c)));
+			bw.write(System.lineSeparator());
 		}
 		
 		bw.flush();
