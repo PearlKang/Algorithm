@@ -19,10 +19,6 @@ public class Main {
 			dp[1] = 1;
 			dp[2] = 2;
 			
-			for(int n = 3; n < dp.length; n++) {
-				dp[n] = -1;
-			}
-			
 			bw.write(String.valueOf(Tile(N)));
 		}
 		
@@ -32,7 +28,7 @@ public class Main {
 	}
 	
 	public static int Tile(int input) {
-		if(dp[input] == -1) {
+		if(input != 0 && dp[input] == 0) {
 			dp[input] = (Tile(input-1) + Tile(input-2)) % 15746;
 		}
 		
