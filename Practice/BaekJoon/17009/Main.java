@@ -4,8 +4,6 @@ import java.io.*;
 import java.util.*;
 
 public class Main {
-	public static int[] dp = new int[1000001];
-	
 	public static void main(String args[]) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
