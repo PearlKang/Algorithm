@@ -1,12 +1,16 @@
 package N17869;
 
 import java.io.*;
+import java.util.*;
 
 public class Main {
 	public static void main(String args[]) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+		StringTokenizer st = null;
 		
-		long N = Long.parseLong(br.readLine());
+		st = new StringTokenizer(br.readLine());
+		long N = Long.parseLong(st.nextToken());
 		int cnt = 0;
 		
 		while(true) {
@@ -23,8 +27,10 @@ public class Main {
 				break;
 		}
 		
-		System.out.println(cnt);
+		bw.write(String.valueOf(cnt));
 		
+		bw.flush();
+		bw.close();
 		br.close();
 	}
 }
